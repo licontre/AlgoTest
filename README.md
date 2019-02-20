@@ -8,4 +8,4 @@
 6. sudo apt-get install libapache2-mod-php
 7. sudo apt-get install php-mysql php-gettext php-mbstring
 8. sudo apt-get install mysql-server
-
+9. mysql -u algoRoot -p < algoTest.sql
