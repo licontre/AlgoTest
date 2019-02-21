@@ -58,11 +58,11 @@
         echo "</form><br/><br/>";
         echo "<form method='POST' action='users.php' target='content'>";
               echo "<select name='INITIATOR'>";
-                echo "<option selected value="0">Initiator</option>";
+                echo "<option selected value=0>Initiator</option>";
                 echo "$usersform";
             echo "</select>";
             echo "<select name='RECEIVER'>";
-              echo "<option selected value="0">Receiver</option>";
+              echo "<option selected value=0>Receiver</option>";
               echo "$usersform";
             echo "</select>";
             echo "<input name='SUBMITCONNECTION' type='submit' value='Add'/>";

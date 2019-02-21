@@ -21,7 +21,7 @@
     return  $name;
   }
 
-  function addUser( $name ){
+  function addUser($name){
     include "connection.php";
     $conn = new mysqli($host, $user, $passwd, $database);
     if ($conn->connect_error){
