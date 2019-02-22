@@ -3,6 +3,9 @@
   <head>
     <meta charset="utf-8">
     <title>AlgoTest</title>
+    <link href="bootstrap/css/bootstrap.css" rel="stylesheet" />
+  	<link href="bootstrap/css/bootstrap-theme.css" rel="stylesheet" />
+  	<script src="bootstrap/js/bootstrap.min.js"></script>
   </head>
   <body>
     <?php
@@ -14,8 +17,15 @@
         }
         $instruct= "SET NAMES 'utf8'";
         $conn->query($instruct);
+        if(isset($_POST["RECEIVER"])){
+          $codUser=$_POST["ID"];
+          $codRece=$_POST["RECEIVER"];
+          removeConnection($codUser,$codRece);
+        }
         $codUser=$_POST["ID"];
         $valu= intval($codUser);
+
+
         $queries= "SELECT INITIATOR, RECEIVER FROM CONECTIONS WHERE INITIATOR = $valu;";
         if($result= $conn->query($queries)){
           if($result->num_rows > 0){
@@ -24,14 +34,21 @@
             echo "<tr class='danger'>";
             echo "<td>Initiator</td>";
             echo "<td>Receiver</td>";
+            echo "<td>Remove</td>";
             while($rowi= $result->fetch_assoc()){
               $initiid=$rowi['INITIATOR'];
               $receiid=$rowi['RECEIVER'];
               $initi=getNameUser($initiid);
               $recei=getNameUser($receiid);
+              $formButton="<form method='POST' action='connections.php' target='cuerpo'>".
+              "<input type='hidden' name='ID' value=$valu />".
+              "<input type='hidden' name='RECEIVER' value=$receiid />".
+              "<input type='submit' name='DELETE' value='delete'  class='btn btn-primary'/>".
+              "</form>";
               echo "<tr class='warning'>";
-              echo "<td ><p>".$initi."</p></td>";
-              echo "<td ><p>".$recei."</p></td>";
+              echo "<td><p>".$initi."</p></td>";
+              echo "<td><p>".$recei."</p></td>";
+              echo "<td>$formButton</td>";
               echo "</tr>";
             }
           }

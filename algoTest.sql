@@ -1,7 +1,7 @@
 create database ALGOTEST;
 create table ALGOTEST.USERS(
     ID      smallint unsigned not null auto_increment,
-    NAME     varchar(70),
+    NAME     varchar(70) unique,
 PRIMARY KEY(ID)) ENGINE=INNODB;
 
 create table  ALGOTEST.CONECTIONS(
