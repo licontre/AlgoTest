@@ -1,6 +1,8 @@
 
 # AlgoTest
 
+This proyect is a dinamic web to see how interact the connectios of the users.
+
 ![diagram](https://github.com/licontre/AlgoTest/blob/master/diagram.jpg?raw=true)
 
 1. We need a machine with Ubuntu SO.
@@ -12,10 +14,10 @@
 7. sudo apt-get install php-mysql php-gettext php-mbstring
 8. sudo apt-get install git mysql-server
 9. git clone https://github.com/licontre/AlgoTest.git
-1. You have to connect to mysql: 
+1. You have to connect to mysql:
 2. create user algoRoot identified by algoRoot;
 3. grant all privileges on AlgoTest. * to algoRoot;
-4. Wherever you saved the file from github, type: 
+4. Wherever you've saved the file from github, type:
 5. sudo mysql -u algoRoot -p < AlgoTest/algoTest.sql
 6. sudo cp -R AlgoTest/  /var/www/
 7. sudo rm -R /var/www/html/
