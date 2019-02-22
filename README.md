@@ -14,7 +14,7 @@
 9. git clone https://github.com/licontre/AlgoTest.git
 1. You have to connect to mysql: 
 2. create user algoRoot identified by algoRoot;
-3. grant all privileges on * . * to algoRoot;
+3. grant all privileges on AlgoTest. * to algoRoot;
 4. Wherever you saved the file from github, type: 
 5. sudo mysql -u algoRoot -p < AlgoTest/algoTest.sql
 6. sudo cp -R AlgoTest/  /var/www/
