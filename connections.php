@@ -25,8 +25,7 @@
         $codUser=$_POST["ID"];
         $valu= intval($codUser);
 
-
-        $queries= "SELECT INITIATOR, RECEIVER FROM CONECTIONS WHERE INITIATOR = $valu;";
+        $queries= "SELECT c.INITIATOR, c.RECEIVER, us.NAME FROM CONECTIONS c INNER JOIN USERS us ON us.ID = c.RECEIVER  WHERE c.INITIATOR = $valu;";
         if($result= $conn->query($queries)){
           if($result->num_rows > 0){
             echo"<div class='table-wrapper-scroll-y'>";
@@ -35,11 +34,11 @@
             echo "<td>Initiator</td>";
             echo "<td>Receiver</td>";
             echo "<td>Remove</td>";
+            $initi=getNameUser($valu);
             while($rowi= $result->fetch_assoc()){
               $initiid=$rowi['INITIATOR'];
               $receiid=$rowi['RECEIVER'];
-              $initi=getNameUser($initiid);
-              $recei=getNameUser($receiid);
+              $recei=$rowi['NAME'];
               $formButton="<form method='POST' action='connections.php' target='cuerpo'>".
               "<input type='hidden' name='ID' value=$valu />".
               "<input type='hidden' name='RECEIVER' value=$receiid />".
