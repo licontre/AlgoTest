@@ -23,3 +23,5 @@ This proyect is a dinamic web to see how interact the connectios of the users.
 7. sudo rm -R /var/www/html/
 8. sudo mv /var/www/AlgoTest /var/www/html
 9. sudo chmod 755 /var/www/html
+1. You have to enable the extensions of php, removing the semicolons
+2. nano /etc/php/7.2/apache2/php.ini 
